@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>División zoonosis y vectores - Dirección de Epidemiología - Ministerio de Salud de Entre Ríos</title>
+  <style>
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+    body{
+      display:flex;align-items:center;justify-content:center;
+      background: url('background.jpg') center/cover no-repeat fixed;
+      background-color:#0f172a; /* fallback */
+      color:#fff;
+    }
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45)}
+    .card{position:relative;z-index:2;max-width:920px;width:92%;padding:28px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6);background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));backdrop-filter: blur(4px);}
+    .logos{display:flex;gap:20px;align-items:center;justify-content:center;margin-bottom:18px}
+    .logos img{max-height:78px;object-fit:contain}
+    h1{margin:8px 0 6px;font-size:28px;text-align:center}
+    p{margin:0 0 14px;text-align:center;font-size:16px;opacity:0.95}
+    .small{font-size:13px;opacity:0.8;text-align:center}
+    footer{margin-top:14px;text-align:center;font-size:12px;opacity:0.75}
+    .contacto{margin-top:12px;text-align:center;font-size:15px;opacity:0.9;font-weight:500}
+    .cerrar{margin-top:20px;text-align:center;font-size:15px;opacity:0.85;}
+    .mapa{margin-top:16px;text-align:center;}
+    .mapa a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:500;}
+    .mapa svg{width:22px;height:22px;fill:#fff;transition:transform 0.2s;}
+    .mapa a:hover svg{transform:scale(1.15);}
+
+    @media (max-width:520px){
+      .logos img{max-height:56px}
+      h1{font-size:20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" aria-hidden="true"></div>
+  <main class="card" role="main" aria-labelledby="titulo">
+    <div class="logos" aria-hidden="false">
+      <img src="fgl.png" alt="Logo FGL" onerror="this.style.display='none'" />
+    </div>
+
+    <h1 id="titulo">Su inscripción ha sido registrada</h1>
+    <p>Su pedido fue recibido correctamente y será procesado para su aprobación.</p>
+    <p><strong>Muchas gracias.</strong></p>
+
+    <footer class="small">División zoonosis y vectores</footer>
+    <div class="contacto">Por consultas por email a la División zoonosis y vectores : <strong>zoonosisentrerios@gmail.com </strong></div>
+    <div class="mapa">
+      <a href="https://www.google.com/maps?q=-31.733884305619107, -60.528645698203356" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+        Ver ubicación en Google Maps
+      </a>
+    </div>
+    <div class="cerrar">Puede cerrar esta ventana ahora.</div>
+  </main>
+
+  <script>
+    (function(){
+      try{
+        const params = new URLSearchParams(location.search);
+        const msg = params.get('msg');
+        if(msg){
+          document.getElementById('titulo').textContent = decodeURIComponent(msg);
+        }
+      }catch(e){/* silencioso */}
+    })();
+  </script>
+</body>
+</html>
